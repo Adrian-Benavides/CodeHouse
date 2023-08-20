@@ -8,7 +8,7 @@
     "test": "nodemon ./src/app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Adrian Benavides",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2"
