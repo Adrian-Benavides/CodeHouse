@@ -9,7 +9,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get('/products',async (req,res) =>{
     try{
-        console.log('aca'); 
         const limit = req.query.limit;    
         const productos =  await productManager.getProductsLimit(limit);
         res.send(productos);
