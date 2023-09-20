@@ -1,0 +1,27 @@
+<form
+  action="http://localhost:8080/autos/"
+  method="post"
+  enctype="multipart/form-data"
+>
+  <label>Nombre:</label>
+  <input type="text" name="name" />
+  <br />
+  <label>Marca:</label>
+  <input type="text" name="brand" />
+  <br />
+  <label>Año:</label>
+  <input type="number" name="year" />
+  <br />
+  <label>Imagen:</label>
+  <input type="file" name="file" />
+  <br />
+  <button type="submit" value="submit">Enviar</button>
+</form>
+{{#each autos}}
+  <div>
+    <img src="http://localhost:8080/static/file/{{this.image}}">
+    <p>{{this.name}}</p>
+    <p>{{this.brand}}</p>
+    <p>{{this.year}}</p>
+  </div>
+{{/each}}
