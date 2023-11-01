@@ -12,9 +12,6 @@ const socketServer = new Server(httpServer);
 
 const conection = new Conection();
 
-app.engine('handlebars',handlebars.engine());
-app.set('views','./src/views');
-app.set('view engine', 'handlebars');
 
 app.use(
   conection.sessionMongo()
