@@ -6,7 +6,6 @@ import EmailService from "../../service/mail.service.js";
 import TicketManager from "./TicketManager.js";
 import customError from "../../service/errors/CutomError.js";
 import enumErrors from "../../service/errors/enumError.js";
-import {logger} from '../../utils/logger.js';
 
 const ticketManager = new TicketManager();
 const emailService =  new EmailService();
@@ -223,8 +222,7 @@ export default class CartManager{
                 await emailService.sendEmail(emailSend,title,text,html);
                 await ticketManager.addTicket(cartBuy,emailSend);
                 
-            }   
-            logger.info(`carro de id ${idCart} comparado`);
+            }     
             return cartFilter; 
         }catch(e){
             customError.createError({

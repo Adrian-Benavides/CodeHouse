@@ -3,7 +3,6 @@ import { productoModel } from "../models/producto.model.js";
 import  ProductRepository from "../../repositories/ProductRepository.js"
 import customError from "../../service/errors/CutomError.js";
 import enumErrors from "../../service/errors/enumError.js"
-import {logger} from '../../utils/logger.js';
 
 const productRepository = new ProductRepository();
 
@@ -12,10 +11,8 @@ export default class ProductManager{
     async addPoduct(data){       
         try{
             const producto = await productRepository.addProduct(data);
-            logger.info(`Se agrego el producto ${producto.id}`);
             return producto;
         }catch(e){
-            logger.warn('Error al agregar un producto');
                 customError.createError({
                     name: "Error DB",
                     cause: "Error de conexion",

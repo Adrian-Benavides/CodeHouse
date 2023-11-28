@@ -17,5 +17,5 @@ export default {
     mail_user : process.env.MAIL_USER,
     mail_password : process.env.MAIL_PASSWORD,
     mail_from : process.env.MAIL_FROM,
-    environment : process.env.ENVIRONMENT || 'PRODUCTION',
+
 }

@@ -9,7 +9,6 @@ import sessionRouter from './sessionRouter.js';
 import initializePassport from '../config/passport.config.js';
 import passport from 'passport';
 import mockProduct from './mockProductRouter.js';
-import logger from './logRouter.js';
 
 
 const router = express()
@@ -25,7 +24,6 @@ router.use('/realtimeproducts', realtimerouter);
 router.use('/', chatrouter);
 router.use('/api/session', sessionRouter);
 router.use('/', mockProduct);
-router.use('/', logger);
 
 
 initializePassport();

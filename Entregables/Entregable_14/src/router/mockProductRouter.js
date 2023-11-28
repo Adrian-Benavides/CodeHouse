@@ -8,7 +8,6 @@ router.get('/mockingproducts',async (req,res) =>{
     try{
         const products =  dtoProduct.getMockProducts();
         res.send(products);
-        return;
     }catch(e){        
         res.status(500).send();
     }

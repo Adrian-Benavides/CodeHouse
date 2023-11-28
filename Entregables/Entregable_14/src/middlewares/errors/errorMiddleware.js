@@ -1,7 +1,7 @@
 import enumErrors from '../../service/errors/enumError.js';
 
 export default (err,req,res,next) =>{
-    console.log(err.code);
+    console.log(err.cause);
     console.log('-------------------------------------------------');
     switch (err.code) {
         case enumErrors.ERROR_BASE_DATOS:
@@ -14,7 +14,7 @@ export default (err,req,res,next) =>{
             res.status(400).send({status:'error',error:err.message});
             break;
         default:
-            res.status(523).send({status:'error',error:'Error no manejado'});           
+            res.status(523).send({status:'error',error:'Error no manejado'});
             break;
     }
 }

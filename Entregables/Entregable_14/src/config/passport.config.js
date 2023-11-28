@@ -6,7 +6,6 @@ import bcrypt from 'bcrypt';
 import jwt from 'passport-jwt';
 import config from './config.js';
 import CartRepository from "../repositories/CartRepository.js"
-import {logger} from '../utils/logger.js'
 
 
 const cartRepository = new CartRepository();
@@ -75,7 +74,7 @@ const initializePassport = () => {
             return done(null, false);
           }
 
-          logger.info(`usuario con rol de ${user.role} logeado`);
+           
           return done(null, user);
         } catch (error) {
             console.log(error);

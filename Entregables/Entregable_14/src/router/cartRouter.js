@@ -11,7 +11,6 @@ router.post('/',async (req,res,next) =>{
     try{ 
         const cart = await cartManager.addCart();
         res.send(cart);
-        return;
     }catch(e){
         next(e);
     }
@@ -23,8 +22,7 @@ router.post('/:cid/product/:pid',isUser,async (req,res,next) =>{
         const pid =req.params.pid;
         const resp = await cartManager.addProductIntoCart(cid,pid);
      
-        res.send(resp); 
-        return;    
+        res.send(resp);     
         
     }catch(e){
         
@@ -38,7 +36,6 @@ router.get('/:cid',isUser,async (req,res,next) =>{
         const id = req.params.cid;
         const carrito = await cartManager.getCartPopulateById(id);
         res.send(carrito);
-        return;
     }catch(e){
         next(e);
     }
@@ -51,7 +48,6 @@ router.delete('/:cid/product/:pid',async (req,res,next) =>{
         const idProduct = req.params.pid;
         const cart = await cartManager.deleteProductByCart(idCart,idProduct);
         res.send(cart);
-        return;
     }catch(e){
         next(e);
     }
@@ -63,7 +59,6 @@ router.delete('/:cid',async (req,res,next) =>{
         const idCart = req.params.cid;
         const cart = await cartManager.deleteAllProductByCart(idCart);
         res.send(cart);
-        return;
     }catch(e){
         next(e);
     }
@@ -76,7 +71,6 @@ router.put('/:cid',async (req,res,next) =>{
         const data = req.body.products
         const cart = await cartManager.updateProductsByCart(idCart,data);
         res.send(cart);
-        return;
     }catch(e){
         next(e);
     }
@@ -90,7 +84,6 @@ router.put('/:cid/product/:pid',async (req,res,next) =>{
         const data = req.body.quantity;
         const cart = await cartManager.updateQuantityProductsByCart(idCart,idProduct,data);
         res.send(cart);
-        return;
     }catch(e){
         next(e);
     }
@@ -103,7 +96,6 @@ router.put('/:cid/purchase',isUser,async (req,res,next) =>{
         const emailSend = req.session.email;
         const cart = await cartManager.purchaseCart(idCart,emailSend);
         res.send(cart);
-        return;
     }catch(e){
        next(e);
     }

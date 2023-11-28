@@ -4,6 +4,7 @@ import ProductManager from '../dao/db/ProductManager.js';
 import isAdmin from '../middlewares/isAdmin.js';
 
 
+
 const productManager = new ProductManager();
 
 const router = Router();
@@ -19,7 +20,6 @@ router.get('/limit/:limit?/page/:page?/sort/:sort?/query/:query?',async (req,res
         const query = req.params.query;
         const productos =  await productManager.getProducts(limit,page,sort,query);
         res.send(productos);
-        return;
     }catch(e){        
         next(e);
     }
@@ -33,7 +33,6 @@ router.get('/:pid',async (req,res,next) =>{
             res.send({Error : `No existe el producto de id: ${id}`});
         }
         res.send(producto);
-        return;
     }catch(e){
         next(e);
     }
@@ -47,8 +46,7 @@ router.post('/',isAdmin, async (req,res,next) =>{
 
         const lista =  await productManager.getProducts();
         req.context.socketServer.emit('actualizarLista',lista);
-        res.send();
-        return;
+        res.send()
     }catch(e){
         next(e);
     }
@@ -79,7 +77,6 @@ router.delete('/:pid',isAdmin,async (req,res,next) =>{
         const lista =  await productManager.getProducts();
         req.context.socketServer.emit('actualizarLista',lista);
         res.send()
-        return;
     }catch(e){
         next(e);
     }
