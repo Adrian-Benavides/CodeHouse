@@ -17,14 +17,10 @@ describe('Test de api Carts', () => {
         });
 
         it('Get carrito por id', async () =>{
-                const session = {
-                        role: 'admin',
-                        email: 'adminCoder@coder.com'
-                };
-                
+               
                 const idCard = carritoId; 
                 const {_body}= await requester
-                .get(`/api/carts/${idCard}`).agent(session);
+                .get(`/api/carts/${idCard}`);
                 
                 expect(_body).to.be.a('array');
                 expect(_body[0]).to.have.property('_id');
