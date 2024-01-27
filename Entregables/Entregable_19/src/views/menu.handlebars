@@ -1,0 +1,22 @@
+    Bienvenido {{username}}
+
+    <div>
+        <form action="http://localhost:8080/api/session/logout", method="GET">
+            <button value="submit">Logout</button>
+        </form>
+    </div> 
+
+    {{#if isAdmin}} 
+        <div>
+            <form action="http://localhost:8080/users", method="GET">
+                <button value="submit">administrar usuarios</button>
+            </form>
+        </div>
+    {{/if}}
+    
+    <div>
+        <form action="http://localhost:8080/products", method="GET">
+            <button value="submit">Comprar productos</button>
+        </form>
+    </div>
+
